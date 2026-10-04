@@ -288,8 +288,8 @@
                             <div class="o_kanban_record_bottom">
                                 <div class="oe_kanban_bottom_left text-muted">
                                         <i class="fa fa-clock-o" /> <t
-                                    t-esc="record.date_from.value"
-                                />-<t t-esc="record.date_to.value" />
+                                    t-out="record.date_from.value"
+                                />-<t t-out="record.date_to.value" />
                                     </div>
                                 <div class="oe_kanban_bottom_right">
                                     <span class="pull-right">

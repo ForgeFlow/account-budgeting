@@ -60,7 +60,7 @@ class AccountBudgetPost(models.Model):
 class CrossoveredBudget(models.Model):
     _name = "crossovered.budget"
     _description = "Budget"
-    _inherit = ["mail.thread"]
+    _inherit = "mail.thread"
 
     name = fields.Char(string="Budget Name", required=True)
     creating_user_id = fields.Many2one(

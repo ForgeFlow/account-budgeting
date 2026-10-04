@@ -1,7 +1,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-import datetime
 
+from odoo.fields import Date
 from odoo.tests import tagged
 
 from odoo.addons.account.tests.common import AccountTestInvoicingCommon
@@ -34,7 +34,7 @@ class TestAccountBudgetCommon(AccountTestInvoicingCommon):
         )
 
         # Create budgets directly (demo data is not loaded in post_install tests)
-        year = datetime.datetime.now().year + 1
+        year = Date.today().year + 1
         cls.budget_pessimistic = cls.env["crossovered.budget"].create(
             {
                 "name": f"Budget {year}: Pessimistic",

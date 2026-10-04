@@ -1,6 +1,5 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-import datetime
 
 from odoo.fields import Date
 from odoo.tests import tagged
@@ -17,13 +16,9 @@ class TestAccountBudget(TestAccountBudgetCommon):
         # Creating a crossovered.budget record
         budget = self.env["crossovered.budget"].create(
             {
-                "date_from": Date.from_string(
-                    "%s-01-01" % (datetime.datetime.now().year + 1)
-                ),
-                "date_to": Date.from_string(
-                    "%s-12-31" % (datetime.datetime.now().year + 1)
-                ),
-                "name": "Budget %s" % (datetime.datetime.now().year + 1),
+                "date_from": Date.from_string("%s-01-01" % (Date.today().year + 1)),
+                "date_to": Date.from_string("%s-12-31" % (Date.today().year + 1)),
+                "name": "Budget %s" % (Date.today().year + 1),
                 "state": "draft",
             }
         )
@@ -34,12 +29,8 @@ class TestAccountBudget(TestAccountBudgetCommon):
             {
                 "crossovered_budget_id": budget.id,
                 "analytic_account_id": self.analytic_camp_to_camp.id,
-                "date_from": Date.from_string(
-                    "%s-01-01" % (datetime.datetime.now().year + 1)
-                ),
-                "date_to": Date.from_string(
-                    "%s-12-31" % (datetime.datetime.now().year + 1)
-                ),
+                "date_from": Date.from_string("%s-01-01" % (Date.today().year + 1)),
+                "date_to": Date.from_string("%s-12-31" % (Date.today().year + 1)),
                 "general_budget_id": self.account_budget_post_purchase0.id,
                 "planned_amount": 10000.0,
             }
@@ -48,12 +39,8 @@ class TestAccountBudget(TestAccountBudgetCommon):
             {
                 "crossovered_budget_id": budget.id,
                 "analytic_account_id": self.analytic_our_super_product.id,
-                "date_from": Date.from_string(
-                    "%s-09-01" % (datetime.datetime.now().year + 1)
-                ),
-                "date_to": Date.from_string(
-                    "%s-09-30" % (datetime.datetime.now().year + 1)
-                ),
+                "date_from": Date.from_string("%s-09-01" % (Date.today().year + 1)),
+                "date_to": Date.from_string("%s-09-30" % (Date.today().year + 1)),
                 "general_budget_id": self.account_budget_post_sales0.id,
                 "planned_amount": 400000.0,
             }
